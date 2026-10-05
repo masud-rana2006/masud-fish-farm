@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Masud Fish Farm</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🐟</text></svg>">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+Da+2:wght@600;700&family=Hind+Siliguri:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header><div class="logo">🐟</div><div><h1>Masud Fish Farm</h1><p>খামারের খরচের হিসাব</p></div></header>
+<main>
+<section class="grid g3">
+ <div class="card stat"><small>সর্বমোট খরচ</small><b id="sTot">৳ ০</b></div>
+ <div class="card stat"><small>মোট এন্ট্রি</small><b id="sCnt">০</b></div>
+ <div class="card stat"><small>এই মাসের খরচ</small><b id="sMon">৳ ০</b></div>
+</section>
+
+<section><h2 id="fTitle">➕ নতুন খরচ যোগ করুন</h2>
+<form id="f" class="card">
+ <label>তারিখ<input type="date" id="fDate" required></label>
+ <label>ক্যাটাগরি<select id="fCat"></select></label>
+ <label class="q">পরিমাণ<input type="number" id="fQty" min="0" step="any" inputmode="decimal"></label>
+ <label class="q">একক<select id="fUnit"><option>কেজি</option><option>বস্তা</option><option>মন</option></select></label>
+ <label class="q">এককের দাম (৳)<input type="number" id="fPrice" min="0" step="any" inputmode="decimal"></label>
+ <label>মোট খরচ (৳)<input type="number" id="fTotal" min="0" step="any" inputmode="decimal" required></label>
+ <label class="full">বিবরণ / নোট (ঐচ্ছিক)<input id="fNote" placeholder="যেমন: কার কাছ থেকে কেনা"></label>
+ <div class="full hint q">পরিমাণ × দাম = মোট (নিজে থেকে হবে)। চাইলে "মোট খরচ" ঘরে সরাসরি লিখেও দিতে পারেন।</div>
+ <div class="full bar"><button class="btn gold" id="fSave" type="submit">সংরক্ষণ করুন</button><button class="btn ghost hide" id="fCancel" type="button">বাতিল</button></div>
+</form></section>
+
+<section><h2>📊 ক্যাটাগরি অনুযায়ী খরচ</h2><div class="grid gc" id="cats"></div><p class="hint">কার্ডে ক্লিক করলে নিচের তালিকা ফিল্টার হবে; আবার ক্লিক করলে ফিল্টার উঠে যাবে।</p></section>
+
+<section><h2>🧾 বিস্তারিত ক্রয় সারাংশ</h2>
+<div class="bar"><select id="sumCat"></select></div>
+<div class="card wrap"><table class="stack"><thead><tr><th>ক্যাটাগরি</th><th>একক</th><th>মোট পরিমাণ</th><th>মোট খরচ</th><th>গড় দাম/একক</th></tr></thead><tbody id="sumBody"></tbody></table></div></section>
+
+<section><h2>📒 সব এন্ট্রি</h2>
+<div class="bar"><select id="mFil"></select><input id="search" type="search" placeholder="🔍 বিবরণ দিয়ে খুঁজুন"><button class="btn" id="exp">⬇ CSV</button></div>
+<div id="fil" class="hint hide"></div>
+<div class="card wrap"><table class="stack"><thead><tr><th>তারিখ</th><th>ক্যাটাগরি</th><th>পরিমাণ</th><th>এককের দাম</th><th>মোট</th><th>বিবরণ</th><th></th></tr></thead><tbody id="body"></tbody></table></div></section>
+</main>
+
+<dialog id="dlg"><h3>CSV ডেটা</h3><p class="hint">কপি করে Sheets/Excel-এ পেস্ট করুন, অথবা ডাউনলোড চেষ্টা করুন।</p><textarea id="csv" readonly></textarea><div class="bar" style="margin-top:10px"><button class="btn gold" id="cp">কপি</button><a class="btn ghost" id="dl" download="masud-fish-farm.csv" style="text-decoration:none;text-align:center">ডাউনলোড</a><button class="btn ghost" id="cl">বন্ধ</button></div></dialog>
+
+<script src="script.js"></script>
+</body>
+</html>

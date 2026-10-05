@@ -1,0 +1,37 @@
+:root{--bg:#f6f0e1;--card:#fffdf6;--ink:#17352f;--mute:#5d746d;--pond:#0f4c47;--pond2:#1b6b63;--gold:#b9770e;--line:#e4dcc4;--sh:0 4px 14px rgba(15,76,71,.10);--danger:#b3372b;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0d1f1d;--card:#142c29;--ink:#eaf3ef;--mute:#9db8b0;--pond:#0a3a36;--pond2:#2a8c80;--gold:#f0b44c;--line:#244540;--sh:0 4px 14px rgba(0,0,0,.35)}}
+:root[data-theme="dark"]{--bg:#0d1f1d;--card:#142c29;--ink:#eaf3ef;--mute:#9db8b0;--pond:#0a3a36;--pond2:#2a8c80;--gold:#f0b44c;--line:#244540;--sh:0 4px 14px rgba(0,0,0,.35)}
+*{box-sizing:border-box}html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:'Hind Siliguri',system-ui,sans-serif;font-size:16px}
+h1,h2,h3,.num{font-family:'Baloo Da 2','Hind Siliguri',sans-serif}
+header{background:linear-gradient(135deg,var(--pond),var(--pond2));color:#fff;padding:18px 16px;display:flex;align-items:center;gap:12px;border-radius:0 0 22px 22px;box-shadow:var(--sh)}
+header .logo{font-size:34px}header h1{margin:0;font-size:24px}header p{margin:0;opacity:.85;font-size:13px}
+main{max-width:1000px;margin:0 auto;padding:16px}
+section{margin-bottom:22px}h2{font-size:19px;margin:0 0 10px;color:var(--pond2)}
+.grid{display:grid;gap:12px}.g3{grid-template-columns:repeat(3,1fr)}.gc{grid-template-columns:repeat(auto-fill,minmax(155px,1fr))}
+.card{background:var(--card);border-radius:16px;box-shadow:var(--sh);padding:14px;border:1px solid var(--line)}
+.stat small{color:var(--mute);display:block}.stat b{font-size:22px;color:var(--gold);font-family:'Baloo Da 2'}
+.cat{cursor:pointer;border:2px solid transparent;transition:.15s}.cat.on{border-color:var(--gold);background:color-mix(in srgb,var(--gold) 12%,var(--card))}
+.cat .ic{font-size:26px}.cat .t{font-weight:600}.cat .m{color:var(--gold);font-family:'Baloo Da 2';font-size:19px;font-weight:700}.cat .q{color:var(--mute);font-size:13px;min-height:18px}
+form{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px}
+label{display:flex;flex-direction:column;gap:4px;font-size:14px;color:var(--mute)}
+input,select,textarea{font:inherit;color:var(--ink);background:var(--bg);border:1.5px solid var(--line);border-radius:10px;padding:10px;width:100%}
+input:focus,select:focus{outline:2px solid var(--pond2)}
+.full{grid-column:1/-1}.hide{display:none!important}
+.btn{font:inherit;font-weight:600;border:0;border-radius:12px;padding:10px 16px;cursor:pointer;background:var(--pond2);color:#fff}
+.btn.gold{background:var(--gold);color:#fff}.btn.ghost{background:transparent;color:var(--pond2);border:1.5px solid var(--pond2)}.btn.red{background:var(--danger)}.btn.sm{padding:6px 10px;font-size:14px}
+.bar{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:10px}.bar>*{flex:1;min-width:140px}.bar .btn{flex:0 0 auto}
+.hint{font-size:12px;color:var(--mute)}
+table{width:100%;border-collapse:collapse}th{background:var(--pond);color:#fff;text-align:left;padding:10px;font-weight:600;font-size:14px}
+th:first-child{border-radius:12px 0 0 0}th:last-child{border-radius:0 12px 0 0}
+td{padding:10px;border-bottom:1px solid var(--line);vertical-align:top}.mon{color:var(--gold);font-weight:700;font-family:'Baloo Da 2'}
+.wrap{overflow-x:auto;border-radius:12px}
+.empty{text-align:center;color:var(--mute);padding:24px}
+dialog{border:0;border-radius:16px;background:var(--card);color:var(--ink);width:min(92vw,560px);box-shadow:var(--sh)}
+dialog textarea{height:200px;font-size:12px}
+@media(max-width:640px){
+.g3{grid-template-columns:1fr 1fr}.g3 .stat:first-child{grid-column:1/-1}
+.stack thead{display:none}.stack,.stack tbody,.stack tr,.stack td{display:block;width:100%}
+.stack tr{background:var(--card);border:1px solid var(--line);border-radius:14px;box-shadow:var(--sh);margin-bottom:10px;padding:6px 4px}
+.stack td{border:0;display:flex;justify-content:space-between;gap:10px;padding:5px 10px;text-align:right}
+.stack td::before{content:attr(data-l);color:var(--mute);text-align:left;flex:0 0 38%}}
